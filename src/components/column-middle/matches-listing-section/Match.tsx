@@ -50,7 +50,7 @@ const Match: FC<MatchProps> = ({
             { opponentName: opponents[1].opponentName, chosen: false },
           ]}
         />
-        <Link href={`/events/event/${eventId}`} className='event-name'>
+        <Link href={`/events/${eventId}`} className='event-name'>
           <h4>{eventName}</h4>
         </Link>
         <MatchButton
@@ -95,7 +95,7 @@ const Match: FC<MatchProps> = ({
             { opponentName: opponents[1].opponentName, chosen: false },
           ]}
         />
-        <Link href={`/events/event/${eventId}`} className='event-name'>
+        <Link href={`/events/${eventId}`} className='event-name'>
           <h4>{eventName}</h4>
         </Link>
         <MatchButton

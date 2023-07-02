@@ -1,0 +1,112 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model User {
+  userId    String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  clerkId String @unique
+  email   String @unique
+
+  ARObets    AROBets[]
+  Singlebets SingleBets[]
+}
+
+model Match {
+  matchId         String     @id @default(uuid())
+  eventId         String
+  event           Event      @relation(fields: [eventId], references: [eventId])
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+  opponentOneName String
+  opponentTwoName String
+  opponentOneOdds Float
+  opponentTwoOdds Float
+  matchDate       DateTime
+  matchState      eventState
+
+  @@index([eventId])
+}
+
+model Event {
+  eventId     String     @id @default(uuid())
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  eventName   String     @unique
+  prizePool   Int
+  startDate   DateTime
+  endDate     DateTime
+  location    String
+  country     String
+  sport       sports
+  eventState  eventState
+  description String
+  matches     Match[]
+}
+
+model AROBets {
+  betId  String @id @default(uuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [userId])
+
+  opponents  opponents[]
+  winAmount  Float
+  paidAmount Float
+
+  @@index([userId])
+}
+
+model SingleBets {
+  betId           String  @id @default(uuid())
+  userId          String
+  matchId         String
+  user            User    @relation(fields: [userId], references: [userId])
+  opponentOneName String
+  opponentTwoName String
+  opponentOneOdds Float
+  opponentTwoOdds Float
+  chosen          Boolean
+  winAmount       Float
+  paidAmount      Float
+
+  // @@index([userId])
+  @@index([userId])
+}
+
+model opponents {
+  matchId         String
+  opponentsId     String  @id @default(uuid())
+  opponentOneName String
+  opponentTwoName String
+  opponentOneOdds Float
+  opponentTwoOdds Float
+  chosen          Boolean
+  AROBets         AROBets @relation(fields: [aROBetsBetId], references: [betId])
+  aROBetsBetId    String
+
+  @@index([aROBetsBetId])
+}
+
+enum eventState {
+  live
+  upcoming
+  finished
+}
+
+enum sports {
+  all
+  basketball
+  soccer
+  football
+}

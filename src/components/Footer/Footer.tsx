@@ -3,7 +3,6 @@ import Image from 'next/image';
 import LogoBetWave from '../logos/BetWave';
 import MediaLinks from '../logos/MediaLinks';
 import { FC } from 'react';
-import { prisma } from '../../../db/db';
 
 const Footer: FC = async () => {
   return (

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import LogoBetWave from '../logos/BetWave';
 import MediaLinks from '../logos/MediaLinks';
 import { FC } from 'react';
+import { prisma } from '../../../db/db';
 
 const Footer: FC = async () => {
   return (
@@ -152,3 +153,28 @@ const Footer: FC = async () => {
 };
 
 export default Footer;
+
+async function CreateMatch() {
+  const count = await prisma.match.count();
+  if (count === 0) {
+    const res = await prisma.match.create({
+      data: {
+        matchDate: new Date('December 17, 1995 03:24:00'),
+        matchState: 'finished',
+        opponentOneName: 'Brandon',
+        opponentTwoName: 'Hunter',
+        opponentOneOdds: 2,
+        opponentTwoOdds: 1,
+        eventId: '123',
+      },
+    });
+
+    console.log(res);
+  } else {
+    console.log('MATCH EXIST!!!!!!!!!');
+  }
+  console.log('CREATED MATCH');
+  console.log('===========================================================');
+}
+
+CreateMatch();

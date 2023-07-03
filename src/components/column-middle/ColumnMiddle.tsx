@@ -93,12 +93,14 @@ async function getMatch(): Promise<APIMatchFromList[]> {
   }));
 }
 
+const data = getMatch();
+console.log('MATCHES-DATA');
+
 const ColumnMiddle = async () => {
-  const data = await getMatch();
   return (
     <>
       <TypeItH1 />
-      <MatchesListWrapper outPutData={data} />
+      <MatchesListWrapper outPutData={Matches} />
     </>
   );
 };

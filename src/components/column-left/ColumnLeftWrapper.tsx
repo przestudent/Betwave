@@ -12,16 +12,7 @@ const getPopularEvents = async () => {
 
 const ColumnLeftWrapper: FC = async () => {
   const data2 = await getPopularEvents();
-  console.log('data2', data2);
-  const data3: APIPopularEvents[] = [
-    {
-      eventId: data2[0].eventId.toString(),
-      eventName: data2[0].eventName,
-      sport: data2[0].sport as sports,
-    },
-  ];
-  console.log('data3', data3);
-  return <ColumnLeft data={data3} />;
+  return <ColumnLeft data={data2.splice(0, 5)} />;
 };
 
 export default ColumnLeftWrapper;

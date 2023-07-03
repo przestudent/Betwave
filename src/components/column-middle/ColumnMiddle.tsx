@@ -93,10 +93,11 @@ async function getMatch(): Promise<APIMatchFromList[]> {
   }));
 }
 
-const data = getMatch();
-console.log('MATCHES-DATA');
+// const data = getMatch();
+// console.log('MATCHES-DATA');
 
 const ColumnMiddle = async () => {
+  const data3 = await getMatch();
   return (
     <>
       <TypeItH1 />

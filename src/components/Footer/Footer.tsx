@@ -151,7 +151,7 @@ const Footer: FC = async () => {
     </>
   );
 };
-CreateMatch();
+// CreateMatch();
 async function CreateMatch() {
   const count = await prisma.match.count();
   if (count === 2) {

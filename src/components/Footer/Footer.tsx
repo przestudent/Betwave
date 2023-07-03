@@ -151,3 +151,5 @@ const Footer: FC = async () => {
     </>
   );
 };
+
+export default Footer;

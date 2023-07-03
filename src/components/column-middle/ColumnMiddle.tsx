@@ -101,7 +101,7 @@ const ColumnMiddle = async () => {
   return (
     <>
       <TypeItH1 />
-      <MatchesListWrapper outPutData={Matches} />
+      <MatchesListWrapper outPutData={data3} />
     </>
   );
 };

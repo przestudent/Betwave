@@ -14,6 +14,9 @@ www.betwavepkb.live/
 - PlanetScale
 
 ## Installation
+
+To install, make sure to have Node.js installed on your machine.
+
 ```
 npm install 
 ```

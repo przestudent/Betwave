@@ -1,29 +1,22 @@
-## Final Project | Grupa PKB | BetWave
+# BetWave
 
-Tematem projektu jest aplikacja internetowa służąca do tworzenia zakładów bukmacherskich.
+Place bets on sport matches and see them in your dashboard!
 
-## Technologie użyte w projekcie
+It's a simple proof of concept site for a imaginary betting site. Made as a final project for one of my college classes.
 
-**Front-end:** React, TypeScript
+-www.betwavepkb.live/
 
-**Back-end:** Next.js
+## Technologies used
 
-**Autoryzacja:** Clerk.dev
+-Next.js
+-TypeScript
+-Prisma
+-PlanetScale
 
-**Baza danych/Serwer:** MySQL hostowana na PlanetScale. Prisma jako ORM
-
-## Autorzy
-
-- Przemysław Pałac
-- Kamil Skałbania
-- Bartłomiej Włodarski
-
-## Features
-
-- Logowanie
-- Tworzenie zakładów w dwóch popularnych systemach (Solo oraz AKO)
-- Podgląd zakładów w panelu użytkownika
-- Navbar zawierający poszczególne sporty z odnośnikami do ich stron
-- Podstrony dzielące się na wydarzenia sportowe oraz dyscypliny
-- Filtracja wydarzeń pod względem różnych kategorii: czas, miejsce 
-
+## Installation
+```
+npm install 
+```
+```
+npm run dev 
+```

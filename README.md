@@ -8,10 +8,10 @@ It's a simple proof of concept site for a imaginary betting site. Made as a fina
 
 ## Technologies used
 
--Next.js
--TypeScript
--Prisma
--PlanetScale
+- Next.js
+- TypeScript
+- Prisma
+- PlanetScale
 
 ## Installation
 ```
